@@ -1,10 +1,13 @@
-﻿actions:
+actions:
   1:
     action: delete_indices
     description: "Delete indices older than 30 days"
     options:
       ignore_empty_list: True
     filters:
+      - filtertype: pattern
+        kind: prefix
+        value: logs-
       - filtertype: age
         source: creation_date
         direction: older

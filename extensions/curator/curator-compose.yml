@@ -9,7 +9,8 @@ services:
     volumes:
       - ./extensions/curator/config/curator.yml:/.curator/curator.yml:ro,Z
       - ./extensions/curator/config/delete_log_files_curator.yml:/.curator/delete_log_files_curator.yml:ro,Z
-      - ./extensions/curator/config/delete_indices.yml:/.curator/delete_indices.yml:ro,Z
+      - ./extensions/curator/config/delete_logs_files_curator.yml:/.curator/delete_logs_files_curator.yml:ro,Z
+      - ./extensions/curator/config/delete_logstash_files_curator.yml:/.curator/delete_logstash_files_curator.yml:ro,Z
     environment:
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
     networks:
