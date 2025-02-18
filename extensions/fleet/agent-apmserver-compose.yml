@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  apm-server:
+    build:
+      context: extensions/fleet/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    container_name: apm-server
+    volumes:
+      - apm-server:/usr/share/elastic-agent/state:Z
+    environment:
+      FLEET_ENROLL: '1'
+      FLEET_TOKEN_POLICY_NAME: Agent Policy APM Server
+      FLEET_INSECURE: '1'
+      FLEET_URL: http://fleet-server:8220
+      ELASTICSEARCH_USERNAME: elastic
+      ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD:-}
+    ports:
+      - 8200:8200
+    hostname: apm-server
+    restart: unless-stopped
+    networks:
+      - yan
+    depends_on:
+      - elasticsearch
+      - kibana
+      - fleet-server
+
+volumes:
+  apm-server:

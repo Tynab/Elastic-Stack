@@ -1,2 +1,2 @@
-# Elastic-Stack
- Elastic Stack
+# ELASTIC STACK
+Elastic Stack with Docker Compose.

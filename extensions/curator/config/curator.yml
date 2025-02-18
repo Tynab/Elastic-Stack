@@ -1,0 +1,10 @@
+elasticsearch:
+  client:
+    hosts: [ http://elasticsearch:9200 ]
+  other_settings:
+    username: elastic
+    password: ${ELASTIC_PASSWORD}
+
+logging:
+  loglevel: INFO
+  logformat: default

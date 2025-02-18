@@ -1,0 +1,12 @@
+secret_management.encryption_keys: [680f94e568c90364bedf927b2f0f49609702d3eab9098688585a375b14274546]
+
+ent_search.listen_host: 0.0.0.0
+
+ent_search.external_url: http://localhost:3002
+kibana.host: http://localhost:5601
+
+elasticsearch.host: http://elasticsearch:9200
+elasticsearch.username: elastic
+elasticsearch.password: ${ELASTIC_PASSWORD}
+
+allow_es_settings_modification: true
