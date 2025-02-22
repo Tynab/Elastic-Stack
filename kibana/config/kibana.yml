@@ -1,6 +1,6 @@
 server.name: kibana
 server.host: 0.0.0.0
-elasticsearch.hosts: [ http://elasticsearch:9200 ]
+elasticsearch.hosts: [http://elasticsearch:9200]
 
 monitoring.ui.container.elasticsearch.enabled: true
 monitoring.ui.container.logstash.enabled: true
@@ -8,13 +8,13 @@ monitoring.ui.container.logstash.enabled: true
 elasticsearch.username: kibana_system
 elasticsearch.password: ${KIBANA_SYSTEM_PASSWORD}
 
-xpack.fleet.agents.fleet_server.hosts: [ http://fleet-server:8220 ]
+xpack.fleet.agents.fleet_server.hosts: [http://fleet-server:8220]
 
 xpack.fleet.outputs:
   - id: fleet-default-output
     name: default
     type: elasticsearch
-    hosts: [ http://elasticsearch:9200 ]
+    hosts: [http://elasticsearch:9200]
     is_default: true
     is_default_monitoring: true
 

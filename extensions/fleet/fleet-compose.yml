@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   fleet-server:
     build:
@@ -7,25 +5,25 @@ services:
       args:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     container_name: fleet-server
+    hostname: fleet-server
+    ports:
+      - 8220:8220
     volumes:
       - fleet-server:/usr/share/elastic-agent/state:Z
     environment:
-      FLEET_SERVER_ENABLE: '1'
-      FLEET_SERVER_INSECURE_HTTP: '1'
-      FLEET_SERVER_HOST: 0.0.0.0
+      FLEET_SERVER_ENABLE: 1
+      FLEET_SERVER_INSECURE_HTTP: 1
+      FLEET_SERVER_HOST: "0.0.0.0"
       FLEET_SERVER_POLICY_ID: fleet-server-policy
-      KIBANA_FLEET_SETUP: '1'
+      KIBANA_FLEET_SETUP: 1
       ELASTICSEARCH_USERNAME: elastic
       ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD:-}
-    ports:
-      - 8220:8220
-    hostname: fleet-server
-    restart: unless-stopped
     networks:
       - yan
     depends_on:
       - elasticsearch
       - kibana
+    restart: unless-stopped
 
 volumes:
   fleet-server:
