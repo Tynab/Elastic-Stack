@@ -1,20 +1,20 @@
 name: heartbeat
 
 heartbeat.monitors:
-- type: http
-  schedule: '@every 5s'
-  urls:
-    - http://elasticsearch:9200
-  username: heartbeat_internal
-  password: ${HEARTBEAT_INTERNAL_PASSWORD}
+  - type: http
+    schedule: "@every 5s"
+    urls:
+      - http://elasticsearch:9200
+    username: heartbeat_internal
+    password: ${HEARTBEAT_INTERNAL_PASSWORD}
 
-- type: icmp
-  schedule: '@every 5s'
-  hosts:
-    - elasticsearch
+  - type: icmp
+    schedule: "@every 5s"
+    hosts:
+      - elasticsearch
 
 processors:
-- add_cloud_metadata: ~
+  - add_cloud_metadata: ~
 
 monitoring:
   enabled: true
@@ -23,7 +23,7 @@ monitoring:
     password: ${BEATS_SYSTEM_PASSWORD}
 
 output.elasticsearch:
-  hosts: [ http://elasticsearch:9200 ]
+  hosts: [http://elasticsearch:9200]
   username: heartbeat_internal
   password: ${HEARTBEAT_INTERNAL_PASSWORD}
 

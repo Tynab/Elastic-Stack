@@ -11,37 +11,37 @@ metricbeat.autodiscover:
       hints.enabled: true
 
 metricbeat.modules:
-- module: elasticsearch
-  hosts: [ http://elasticsearch:9200 ]
-  username: elastic
-  password: ${MONITORING_INTERNAL_PASSWORD}
-  xpack.enabled: true
-  period: 10s
-  enabled: true
-- module: logstash
-  hosts: [ http://logstash:9600 ]
-  xpack.enabled: true
-  period: 10s
-  enabled: true
-- module: kibana
-  hosts: [ http://kibana:5601 ]
-  username: elastic
-  password: ${MONITORING_INTERNAL_PASSWORD}
-  xpack.enabled: true
-  period: 10s
-  enabled: true
-- module: docker
-  metricsets:
-    - container
-    - cpu
-    - diskio
-    - healthcheck
-    - info
-    - memory
-    - network
-  hosts: [ unix:///var/run/docker.sock ]
-  period: 10s
-  enabled: true
+  - module: elasticsearch
+    hosts: [http://elasticsearch:9200]
+    username: elastic
+    password: ${MONITORING_INTERNAL_PASSWORD}
+    xpack.enabled: true
+    period: 10s
+    enabled: true
+  - module: logstash
+    hosts: [http://logstash:9600]
+    xpack.enabled: true
+    period: 10s
+    enabled: true
+  - module: kibana
+    hosts: [http://kibana:5601]
+    username: elastic
+    password: ${MONITORING_INTERNAL_PASSWORD}
+    xpack.enabled: true
+    period: 10s
+    enabled: true
+  - module: docker
+    metricsets:
+      - container
+      - cpu
+      - diskio
+      - healthcheck
+      - info
+      - memory
+      - network
+    hosts: [unix:///var/run/docker.sock]
+    period: 10s
+    enabled: true
 
 processors:
   - add_cloud_metadata: ~
@@ -53,7 +53,7 @@ monitoring:
     password: ${BEATS_SYSTEM_PASSWORD}
 
 output.elasticsearch:
-  hosts: [ http://elasticsearch:9200 ]
+  hosts: [http://elasticsearch:9200]
   username: metricbeat_internal
   password: ${METRICBEAT_INTERNAL_PASSWORD}
 

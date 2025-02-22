@@ -13,4 +13,4 @@
         direction: older
         unit: days
         unit_count: 30
-    timestring: '%Y.%m.%d'
+    timestring: "%Y.%m.%d"
