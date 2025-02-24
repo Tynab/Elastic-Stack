@@ -38,10 +38,10 @@ services:
       - 9200:9200
       - 9300:9300
     environment:
-      node.name: elasticsearch
-      ES_JAVA_OPTS: -Xms16g -Xmx16g
+      node.name: "elasticsearch"
+      ES_JAVA_OPTS: "-Xms16g -Xmx16g"
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
-      discovery.type: single-node
+      discovery.type: "single-node"
     networks:
       - yan
     restart: unless-stopped
@@ -62,7 +62,7 @@ services:
       - 50000:50000/tcp
       - 50000:50000/udp
     environment:
-      LS_JAVA_OPTS: -Xms1g -Xmx1g
+      LS_JAVA_OPTS: "-Xms1g -Xmx1g"
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
     networks:
       - yan

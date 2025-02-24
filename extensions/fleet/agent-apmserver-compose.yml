@@ -11,11 +11,11 @@ services:
     volumes:
       - apm-server:/usr/share/elastic-agent/state:Z
     environment:
-      FLEET_ENROLL: 1
-      FLEET_TOKEN_POLICY_NAME: Agent Policy APM Server
-      FLEET_INSECURE: 1
-      FLEET_URL: http://fleet-server:8220
-      ELASTICSEARCH_USERNAME: elastic
+      FLEET_ENROLL: "1"
+      FLEET_TOKEN_POLICY_NAME: "Agent Policy APM Server"
+      FLEET_INSECURE: "1"
+      FLEET_URL: "http://fleet-server:8220"
+      ELASTICSEARCH_USERNAME: "elastic"
       ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD:-}
     networks:
       - yan
