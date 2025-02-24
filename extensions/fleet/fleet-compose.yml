@@ -11,12 +11,12 @@ services:
     volumes:
       - fleet-server:/usr/share/elastic-agent/state:Z
     environment:
-      FLEET_SERVER_ENABLE: 1
-      FLEET_SERVER_INSECURE_HTTP: 1
+      FLEET_SERVER_ENABLE: "1"
+      FLEET_SERVER_INSECURE_HTTP: "1"
       FLEET_SERVER_HOST: "0.0.0.0"
-      FLEET_SERVER_POLICY_ID: fleet-server-policy
-      KIBANA_FLEET_SETUP: 1
-      ELASTICSEARCH_USERNAME: elastic
+      FLEET_SERVER_POLICY_ID: "fleet-server-policy"
+      KIBANA_FLEET_SETUP: "1"
+      ELASTICSEARCH_USERNAME: "elastic"
       ELASTICSEARCH_PASSWORD: ${ELASTIC_PASSWORD:-}
     networks:
       - yan
